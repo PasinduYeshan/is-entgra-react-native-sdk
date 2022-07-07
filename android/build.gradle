@@ -61,6 +61,11 @@ repositories {
   mavenCentral()
   google()
 
+  maven {
+    url "http://nexus.entgra.io/repository/maven-releases/"
+    allowInsecureProtocol = true
+  }
+
   def found = false
   def defaultDir = null
   def androidSourcesName = 'React Native sources'
@@ -133,6 +138,11 @@ dependencies {
     //noinspection GradleDynamicVersion
   implementation "com.facebook.react:react-native:+"
   implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+
+  // Added modules
+  implementation 'io.entgra.device.mgt.sdk:security-sdk-core:0.2.0'
+  implementation project(':react-native-keychain')
+  implementation project(':react-native-config')
 // From node_modules
 }
 
